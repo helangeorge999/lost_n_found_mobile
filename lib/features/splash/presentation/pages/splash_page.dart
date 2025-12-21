@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../onboarding/presentation/pages/onboarding_page.dart';
 
 class SplashPage extends ConsumerStatefulWidget {
@@ -101,7 +102,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -137,7 +138,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
                             ),
                           ],
                         ),
-                        child: const Center(
+                        child: Center(
                           child: Icon(
                             Icons.search_rounded,
                             size: 56,
@@ -157,12 +158,12 @@ class _SplashPageState extends ConsumerState<SplashPage>
                   position: _slideAnimation,
                   child: Column(
                     children: [
-                      const Text(
+                      Text(
                         'Lost & Found',
                         style: TextStyle(
                           fontSize: 32,
                           fontWeight: FontWeight.w700,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                           letterSpacing: -0.5,
                         ),
                       ),
@@ -172,7 +173,7 @@ class _SplashPageState extends ConsumerState<SplashPage>
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
-                          color: AppColors.textSecondary.withAlpha(180),
+                          color: context.textSecondary.withAlpha(180),
                           letterSpacing: 0.2,
                         ),
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../../auth/presentation/pages/login_page.dart';
 
@@ -9,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      // backgroundColor: context.backgroundColor // Using theme default,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -17,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
               // Header with gradient background
               Container(
                 width: double.infinity,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: AppColors.primaryGradient,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(32),
@@ -27,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(height: 20),
-                    const Text(
+                    Text(
                       'My Profile',
                       style: TextStyle(
                         fontSize: 20,
@@ -65,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
 
-                    const Text(
+                    Text(
                       'John Doe',
                       style: TextStyle(
                         fontSize: 24,
@@ -74,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    const Text(
+                    Text(
                       'john.doe@softwarica.edu.np',
                       style: TextStyle(
                         fontSize: 14,
@@ -141,7 +142,7 @@ class ProfileScreen extends StatelessWidget {
                           gradient: AppColors.secondaryGradient,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: const Text(
+                        child: Text(
                           '3',
                           style: TextStyle(
                             color: Colors.white,
@@ -187,11 +188,11 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Version Info
-              const Text(
+              Text(
                 'Version 1.0.0',
                 style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary60,
+                  color: context.textSecondary60,
                 ),
               ),
               const SizedBox(height: 32),
@@ -209,19 +210,19 @@ class ProfileScreen extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        title: const Text(
+        title: Text(
           'Logout',
           style: TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        content: const Text('Are you sure you want to logout?'),
+        content: Text('Are you sure you want to logout?'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: context.textSecondary),
             ),
           ),
           TextButton(
@@ -229,7 +230,7 @@ class ProfileScreen extends StatelessWidget {
               Navigator.pop(context);
               AppRoutes.pushAndRemoveUntil(context, const LoginPage());
             },
-            child: const Text(
+            child: Text(
               'Logout',
               style: TextStyle(
                 color: AppColors.error,
@@ -258,7 +259,7 @@ class _StatItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -267,7 +268,7 @@ class _StatItem extends StatelessWidget {
         const SizedBox(height: 4),
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 12,
             color: AppColors.white80,
           ),
@@ -336,10 +337,10 @@ class _MenuItem extends StatelessWidget {
                   ),
                 ),
                 trailing ??
-                    const Icon(
+                    Icon(
                       Icons.arrow_forward_ios_rounded,
                       size: 16,
-                      color: AppColors.textSecondary50,
+                      color: context.textSecondary50,
                     ),
               ],
             ),

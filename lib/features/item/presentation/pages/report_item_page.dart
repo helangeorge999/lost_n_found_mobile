@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 
 class ReportItemPage extends StatefulWidget {
@@ -38,7 +39,7 @@ class _ReportItemPageState extends State<ReportItemPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      // backgroundColor: context.backgroundColor // Using theme default,
       body: SafeArea(
         child: Column(
           children: [
@@ -57,20 +58,20 @@ class _ReportItemPageState extends State<ReportItemPage> {
                         borderRadius: BorderRadius.circular(14),
                         boxShadow: AppColors.softShadow,
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back_rounded,
-                        color: AppColors.textPrimary,
+                        color: context.textPrimary,
                       ),
                     ),
                   ),
                   const SizedBox(width: 16),
-                  const Expanded(
+                  Expanded(
                     child: Text(
                       'Report Item',
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: context.textPrimary,
                       ),
                     ),
                   ),
@@ -187,12 +188,12 @@ class _ReportItemPageState extends State<ReportItemPage> {
                       const SizedBox(height: 24),
 
                       // Photo/Video Upload Section
-                      const Text(
+                      Text(
                         'Add Photos / Videos',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -227,18 +228,18 @@ class _ReportItemPageState extends State<ReportItemPage> {
                                           : AppColors.foundGradient,
                                       borderRadius: BorderRadius.circular(10),
                                     ),
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.add_a_photo_rounded,
                                       color: Colors.white,
                                       size: 20,
                                     ),
                                   ),
                                   const SizedBox(height: 8),
-                                  const Text(
+                                  Text(
                                     'Add Photo / Video',
                                     style: TextStyle(
                                       fontSize: 11,
-                                      color: AppColors.textSecondary,
+                                      color: context.textSecondary,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
@@ -252,12 +253,12 @@ class _ReportItemPageState extends State<ReportItemPage> {
                       const SizedBox(height: 24),
 
                       // Item Title
-                      const Text(
+                      Text(
                         'Item Title',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -287,12 +288,12 @@ class _ReportItemPageState extends State<ReportItemPage> {
                       const SizedBox(height: 24),
 
                       // Category Selection
-                      const Text(
+                      Text(
                         'Category',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -354,12 +355,12 @@ class _ReportItemPageState extends State<ReportItemPage> {
                       const SizedBox(height: 24),
 
                       // Location
-                      const Text(
+                      Text(
                         'Location',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -376,10 +377,10 @@ class _ReportItemPageState extends State<ReportItemPage> {
                                 ? 'Where did you lose it?'
                                 : 'Where did you find it?',
                             hintStyle:
-                                const TextStyle(color: AppColors.textTertiary),
-                            prefixIcon: const Icon(
+                                TextStyle(color: AppColors.textTertiary),
+                            prefixIcon: Icon(
                               Icons.location_on_rounded,
-                              color: AppColors.textSecondary,
+                              color: context.textSecondary,
                             ),
                             border: InputBorder.none,
                             contentPadding: const EdgeInsets.all(16),
@@ -396,12 +397,12 @@ class _ReportItemPageState extends State<ReportItemPage> {
                       const SizedBox(height: 24),
 
                       // Description
-                      const Text(
+                      Text(
                         'Description',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: context.textPrimary,
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -463,7 +464,7 @@ class _ReportItemPageState extends State<ReportItemPage> {
                               const SizedBox(width: 12),
                               Text(
                                 _isLostItem ? 'Report Lost Item' : 'Report Found Item',
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,

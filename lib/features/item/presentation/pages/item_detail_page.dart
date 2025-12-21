@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 
 class ItemDetailPage extends StatelessWidget {
@@ -46,7 +47,7 @@ class ItemDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      // backgroundColor: context.backgroundColor // Using theme default,
       body: CustomScrollView(
         slivers: [
           // Custom App Bar with Image
@@ -65,9 +66,9 @@ class ItemDetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: AppColors.softShadow,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.arrow_back_rounded,
-                    color: AppColors.textPrimary,
+                    color: context.textPrimary,
                   ),
                 ),
               ),
@@ -82,9 +83,9 @@ class ItemDetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: AppColors.softShadow,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.share_rounded,
-                    color: AppColors.textPrimary,
+                    color: context.textPrimary,
                     size: 22,
                   ),
                 ),
@@ -98,9 +99,9 @@ class ItemDetailPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: AppColors.softShadow,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.bookmark_border_rounded,
-                    color: AppColors.textPrimary,
+                    color: context.textPrimary,
                     size: 22,
                   ),
                 ),
@@ -150,7 +151,7 @@ class ItemDetailPage extends StatelessWidget {
                             const SizedBox(width: 6),
                             Text(
                               isLost ? 'Lost Item' : 'Found Item',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
@@ -169,7 +170,7 @@ class ItemDetailPage extends StatelessWidget {
           // Content
           SliverToBoxAdapter(
             child: Container(
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: AppColors.background,
                 borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
               ),
@@ -196,10 +197,10 @@ class ItemDetailPage extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     title,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.textPrimary,
+                                      color: context.textPrimary,
                                     ),
                                   ),
                                 ),
@@ -214,7 +215,7 @@ class ItemDetailPage extends StatelessWidget {
                                   ),
                                   child: Text(
                                     category,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w600,
                                       color: AppColors.primary,
@@ -254,7 +255,7 @@ class ItemDetailPage extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Row(
+                            Row(
                               children: [
                                 Icon(
                                   Icons.description_rounded,
@@ -267,7 +268,7 @@ class ItemDetailPage extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
-                                    color: AppColors.textPrimary,
+                                    color: context.textPrimary,
                                   ),
                                 ),
                               ],
@@ -275,9 +276,9 @@ class ItemDetailPage extends StatelessWidget {
                             const SizedBox(height: 12),
                             Text(
                               description ?? 'No description provided.',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 14,
-                                color: AppColors.textSecondary,
+                                color: context.textSecondary,
                                 height: 1.6,
                               ),
                             ),
@@ -304,7 +305,7 @@ class ItemDetailPage extends StatelessWidget {
                                 gradient: AppColors.primaryGradient,
                                 borderRadius: BorderRadius.circular(16),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.person_rounded,
                                 color: Colors.white,
                                 size: 28,
@@ -317,18 +318,18 @@ class ItemDetailPage extends StatelessWidget {
                                 children: [
                                   Text(
                                     isLost ? 'Reported by' : 'Found by',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 12,
-                                      color: AppColors.textSecondary,
+                                      color: context.textSecondary,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
                                     reportedBy,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.textPrimary,
+                                      color: context.textPrimary,
                                     ),
                                   ),
                                 ],
@@ -341,7 +342,7 @@ class ItemDetailPage extends StatelessWidget {
                                 color: AppColors.primary.withAlpha(26),
                                 borderRadius: BorderRadius.circular(12),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.chat_rounded,
                                 color: AppColors.primary,
                                 size: 22,
@@ -383,7 +384,7 @@ class ItemDetailPage extends StatelessWidget {
                   color: AppColors.primary.withAlpha(26),
                   borderRadius: BorderRadius.circular(16),
                 ),
-                child: const Icon(
+                child: Icon(
                   Icons.chat_bubble_rounded,
                   color: AppColors.primary,
                 ),
@@ -413,7 +414,7 @@ class ItemDetailPage extends StatelessWidget {
                         const SizedBox(width: 10),
                         Text(
                           isLost ? 'I Found This Item' : 'Claim This Item',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -456,7 +457,7 @@ class ItemDetailPage extends StatelessWidget {
             const SizedBox(width: 12),
             Text(
               isLost ? 'Found This Item?' : 'Claim Item',
-              style: const TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -468,9 +469,9 @@ class ItemDetailPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: context.textSecondary),
             ),
           ),
           TextButton(
@@ -512,14 +513,14 @@ class _InfoChip extends StatelessWidget {
         Icon(
           icon,
           size: 16,
-          color: AppColors.textSecondary,
+          color: context.textSecondary,
         ),
         const SizedBox(width: 6),
         Text(
           text,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 13,
-            color: AppColors.textSecondary,
+            color: context.textSecondary,
           ),
         ),
       ],

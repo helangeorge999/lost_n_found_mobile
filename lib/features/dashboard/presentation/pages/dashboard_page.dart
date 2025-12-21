@@ -44,7 +44,7 @@ class _DashboardPageState extends State<DashboardPage> {
           onPressed: _onReportPressed,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          child: const Icon(
+          child: Icon(
             Icons.add_rounded,
             color: Colors.white,
             size: 32,
@@ -157,7 +157,7 @@ class _NavItem extends StatelessWidget {
                       ),
                       child: Text(
                         '$badge',
-                        style: const TextStyle(
+                        style: TextStyle(
                           color: Colors.white,
                           fontSize: 10,
                           fontWeight: FontWeight.bold,

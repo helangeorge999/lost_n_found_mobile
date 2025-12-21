@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../../core/widgets/gradient_button.dart';
 import '../../../../core/utils/snackbar_utils.dart';
 import '../../../dashboard/presentation/pages/dashboard_page.dart';
@@ -87,35 +88,23 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
           icon: Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: context.surfaceColor,
               borderRadius: BorderRadius.circular(12),
-              boxShadow: AppColors.softShadow,
+              boxShadow: context.softShadow,
             ),
-            child: const Icon(
+            child: Icon(
               Icons.arrow_back,
-              color: AppColors.textPrimary,
+              color: context.textPrimary,
               size: 20,
             ),
           ),
           onPressed: _navigateToLogin,
         ),
-        title: const Text(
-          'Create Account',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: AppColors.textPrimary,
-          ),
-        ),
-        centerTitle: true,
       ),
       body: SafeArea(
         child: Center(
@@ -145,19 +134,19 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                               ),
                             ],
                           ),
-                          child: const Icon(
+                          child: Icon(
                             Icons.person_add_rounded,
                             size: 40,
                             color: Colors.white,
                           ),
                         ),
                         const SizedBox(height: 20),
-                        const Text(
+                        Text(
                           'Join Us Today',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
-                            color: AppColors.textPrimary,
+                            color: context.textPrimary,
                           ),
                         ),
                         const SizedBox(height: 8),
@@ -165,7 +154,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                           'Create your account to get started',
                           style: TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary.withAlpha(180),
+                            color: context.textSecondary.withAlpha(180),
                           ),
                         ),
                       ],
@@ -241,12 +230,12 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 children: [
                                   Text(
                                     country['flag']!,
-                                    style: const TextStyle(fontSize: 18),
+                                    style: TextStyle(fontSize: 18),
                                   ),
                                   const SizedBox(width: 6),
                                   Text(
                                     country['code']!,
-                                    style: const TextStyle(fontSize: 14),
+                                    style: TextStyle(fontSize: 14),
                                   ),
                                 ],
                               ),
@@ -324,7 +313,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                     decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'Create a strong password',
-                      prefixIcon: const Icon(Icons.lock_outline_rounded),
+                      prefixIcon: Icon(Icons.lock_outline_rounded),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscurePassword
@@ -357,7 +346,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                     decoration: InputDecoration(
                       labelText: 'Confirm Password',
                       hintText: 'Re-enter your password',
-                      prefixIcon: const Icon(Icons.lock_outline_rounded),
+                      prefixIcon: Icon(Icons.lock_outline_rounded),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _obscureConfirmPassword
@@ -412,14 +401,14 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                           child: Text.rich(
                             TextSpan(
                               text: 'I agree to the ',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 14,
-                                color: AppColors.textSecondary,
+                                color: context.textSecondary,
                               ),
                               children: [
                                 TextSpan(
                                   text: 'Terms & Conditions',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     color: AppColors.primary,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -427,7 +416,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                 const TextSpan(text: ' and '),
                                 TextSpan(
                                   text: 'Privacy Policy',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     color: AppColors.primary,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -453,16 +442,16 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         'Already have an account? ',
                         style: TextStyle(
-                          color: AppColors.textSecondary,
+                          color: context.textSecondary,
                           fontSize: 15,
                         ),
                       ),
                       GestureDetector(
                         onTap: _navigateToLogin,
-                        child: const Text(
+                        child: Text(
                           'Login',
                           style: TextStyle(
                             color: AppColors.primary,

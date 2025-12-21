@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 import '../../../../app/routes/app_routes.dart';
 import '../../../item/presentation/pages/item_detail_page.dart';
 
@@ -96,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      // backgroundColor: context.backgroundColor // Using theme default,
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -110,21 +111,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Welcome Back!',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColors.textSecondary,
+                            color: context.textSecondary,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         const SizedBox(height: 4),
-                        const Text(
+                        Text(
                           'John Doe',
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
+                            color: context.textPrimary,
                           ),
                         ),
                       ],
@@ -139,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       child: Stack(
                         children: [
-                          const Center(
+                          Center(
                             child: Icon(
                               Icons.notifications_rounded,
                               color: Colors.white,
@@ -183,10 +184,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'Search items...',
-                      hintStyle: const TextStyle(color: AppColors.textTertiary),
-                      prefixIcon: const Icon(
+                      hintStyle: TextStyle(color: AppColors.textTertiary),
+                      prefixIcon: Icon(
                         Icons.search_rounded,
-                        color: AppColors.textSecondary,
+                        color: context.textSecondary,
                       ),
                       suffixIcon: Container(
                         margin: const EdgeInsets.all(8),
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           gradient: AppColors.primaryGradient,
                           borderRadius: BorderRadius.circular(12),
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.tune_rounded,
                           color: Colors.white,
                           size: 20,
@@ -378,17 +379,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       'Recent Items',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.textPrimary,
+                        color: context.textPrimary,
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         'See All',
                         style: TextStyle(
                           color: AppColors.primary,
@@ -417,11 +418,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: AppColors.textTertiary.withAlpha(128),
                             ),
                             const SizedBox(height: 16),
-                            const Text(
+                            Text(
                               'No items found',
                               style: TextStyle(
                                 fontSize: 16,
-                                color: AppColors.textSecondary,
+                                color: context.textSecondary,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -511,17 +512,17 @@ class _StatCard extends StatelessWidget {
             children: [
               Text(
                 value,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.textPrimary,
+                  color: context.textPrimary,
                 ),
               ),
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 12,
-                  color: AppColors.textSecondary,
+                  color: context.textSecondary,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -612,10 +613,10 @@ class _ItemCard extends StatelessWidget {
                           Expanded(
                             child: Text(
                               title,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: AppColors.textPrimary,
+                                color: context.textPrimary,
                               ),
                             ),
                           ),
@@ -646,18 +647,18 @@ class _ItemCard extends StatelessWidget {
                       const SizedBox(height: 8),
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.location_on_rounded,
                             size: 14,
-                            color: AppColors.textSecondary,
+                            color: context.textSecondary,
                           ),
                           const SizedBox(width: 4),
                           Expanded(
                             child: Text(
                               location,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 13,
-                                color: AppColors.textSecondary,
+                                color: context.textSecondary,
                               ),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
@@ -679,7 +680,7 @@ class _ItemCard extends StatelessWidget {
                             ),
                             child: Text(
                               category,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 11,
                                 color: AppColors.primary,
                                 fontWeight: FontWeight.w600,
@@ -695,7 +696,7 @@ class _ItemCard extends StatelessWidget {
                           const SizedBox(width: 4),
                           Text(
                             time,
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
                               color: AppColors.textTertiary,
                             ),

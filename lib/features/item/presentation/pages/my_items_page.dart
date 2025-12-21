@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../app/theme/theme_extensions.dart';
 
 class MyItemsPage extends StatefulWidget {
   const MyItemsPage({super.key});
@@ -76,7 +77,7 @@ class _MyItemsPageState extends State<MyItemsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      // backgroundColor: context.backgroundColor // Using theme default,
       body: SafeArea(
         child: Column(
           children: [
@@ -85,7 +86,7 @@ class _MyItemsPageState extends State<MyItemsPage>
               padding: const EdgeInsets.all(20.0),
               child: Row(
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -94,7 +95,7 @@ class _MyItemsPageState extends State<MyItemsPage>
                           style: TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
+                            color: context.textPrimary,
                           ),
                         ),
                         SizedBox(height: 4),
@@ -102,7 +103,7 @@ class _MyItemsPageState extends State<MyItemsPage>
                           'Track your reports',
                           style: TextStyle(
                             fontSize: 14,
-                            color: AppColors.textSecondary,
+                            color: context.textSecondary,
                           ),
                         ),
                       ],
@@ -116,9 +117,9 @@ class _MyItemsPageState extends State<MyItemsPage>
                       borderRadius: BorderRadius.circular(14),
                       boxShadow: AppColors.softShadow,
                     ),
-                    child: const Icon(
+                    child: Icon(
                       Icons.sort_rounded,
-                      color: AppColors.textPrimary,
+                      color: context.textPrimary,
                     ),
                   ),
                 ],
@@ -144,7 +145,7 @@ class _MyItemsPageState extends State<MyItemsPage>
                 dividerColor: Colors.transparent,
                 labelColor: Colors.white,
                 unselectedLabelColor: AppColors.textSecondary,
-                labelStyle: const TextStyle(
+                labelStyle: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 ),
@@ -153,9 +154,9 @@ class _MyItemsPageState extends State<MyItemsPage>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.search_off_rounded, size: 18),
+                        Icon(Icons.search_off_rounded, size: 18),
                         const SizedBox(width: 8),
-                        const Text('My Lost'),
+                        Text('My Lost'),
                         const SizedBox(width: 6),
                         Container(
                           padding: const EdgeInsets.symmetric(
@@ -168,7 +169,7 @@ class _MyItemsPageState extends State<MyItemsPage>
                           ),
                           child: Text(
                             '${_myLostItems.length}',
-                            style: const TextStyle(fontSize: 12),
+                            style: TextStyle(fontSize: 12),
                           ),
                         ),
                       ],
@@ -178,9 +179,9 @@ class _MyItemsPageState extends State<MyItemsPage>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(Icons.check_circle_rounded, size: 18),
+                        Icon(Icons.check_circle_rounded, size: 18),
                         const SizedBox(width: 8),
-                        const Text('My Found'),
+                        Text('My Found'),
                         const SizedBox(width: 6),
                         Container(
                           padding: const EdgeInsets.symmetric(
@@ -193,7 +194,7 @@ class _MyItemsPageState extends State<MyItemsPage>
                           ),
                           child: Text(
                             '${_myFoundItems.length}',
-                            style: const TextStyle(fontSize: 12),
+                            style: TextStyle(fontSize: 12),
                           ),
                         ),
                       ],
@@ -237,9 +238,9 @@ class _MyItemsPageState extends State<MyItemsPage>
             const SizedBox(height: 16),
             Text(
               isLost ? 'No lost items reported' : 'No found items reported',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
-                color: AppColors.textSecondary,
+                color: context.textSecondary,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -285,7 +286,7 @@ class _MyItemsPageState extends State<MyItemsPage>
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        title: const Text(
+        title: Text(
           'Delete Item',
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
@@ -293,9 +294,9 @@ class _MyItemsPageState extends State<MyItemsPage>
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text(
+            child: Text(
               'Cancel',
-              style: TextStyle(color: AppColors.textSecondary),
+              style: TextStyle(color: context.textSecondary),
             ),
           ),
           TextButton(
@@ -303,7 +304,7 @@ class _MyItemsPageState extends State<MyItemsPage>
               Navigator.pop(context);
               // TODO: Delete item
             },
-            child: const Text(
+            child: Text(
               'Delete',
               style: TextStyle(
                 color: AppColors.error,
@@ -437,10 +438,10 @@ class _MyItemCard extends StatelessWidget {
                                 Expanded(
                                   child: Text(
                                     title,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.textPrimary,
+                                      color: context.textPrimary,
                                     ),
                                   ),
                                 ),
@@ -467,18 +468,18 @@ class _MyItemCard extends StatelessWidget {
                             const SizedBox(height: 6),
                             Row(
                               children: [
-                                const Icon(
+                                Icon(
                                   Icons.location_on_rounded,
                                   size: 14,
-                                  color: AppColors.textSecondary,
+                                  color: context.textSecondary,
                                 ),
                                 const SizedBox(width: 4),
                                 Expanded(
                                   child: Text(
                                     location,
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 13,
-                                      color: AppColors.textSecondary,
+                                      color: context.textSecondary,
                                     ),
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -493,7 +494,7 @@ class _MyItemCard extends StatelessWidget {
                                 const SizedBox(width: 4),
                                 Text(
                                   time,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 12,
                                     color: AppColors.textTertiary,
                                   ),
@@ -520,7 +521,7 @@ class _MyItemCard extends StatelessWidget {
                                 color: AppColors.primary.withAlpha(26),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
@@ -552,7 +553,7 @@ class _MyItemCard extends StatelessWidget {
                                 color: AppColors.error.withAlpha(26),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: const Row(
+                              child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(

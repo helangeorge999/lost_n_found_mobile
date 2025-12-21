@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
       title: 'Lost & Found',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
       home: const SplashPage(),
     );
   }
