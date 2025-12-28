@@ -1,0 +1,8 @@
+step 1: constant folder vitra hive table ma 5 wota database
+
+step 2: failure.dart
+
+step 3: batch_entity.dart
+
+step 4: batch_repository.dart
+

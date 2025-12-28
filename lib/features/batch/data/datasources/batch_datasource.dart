@@ -1,0 +1,12 @@
+import 'package:either_dart/either.dart';
+import 'package:lost_n_found/core/error/failures.dart';
+import 'package:lost_n_found/features/batch/data/models/batch_hive_model.dart';
+import 'package:lost_n_found/features/batch/domain/entities/batch_entity.dart';
+
+abstract interface class IBatchRepository {
+  Future<List<BatchHiveModel>> getAllBatches();
+  Future<BatchHiveModel> getBatchById(String batchId);
+  Future<bool> createBatch(BatchHiveModel batch);
+  Future<bool> updateBatch(BatchHiveModel batch);
+  Future<bool> deleteBatch(String batchId);
+}
