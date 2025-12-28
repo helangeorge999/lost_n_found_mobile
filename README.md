@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Lost & Found Mobile App
 
 A Flutter mobile application for Softwarica College's lost and found system.
@@ -47,3 +48,6 @@ flutter run
 - Report found items
 - Browse lost and found items
 - Item details and claiming
+=======
+# lost_n_found_mobile
+>>>>>>> 708c1d1d98a9988cc6cb314103c8c7f07da06100
